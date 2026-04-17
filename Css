@@ -1,0 +1,86 @@
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent, black 80%);
+  z-index: -1;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 4em;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  color: gold;
+  margin-top: 10px;
+}
+
+.about, .highlight, .closing {
+  padding: 80px 20px;
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+h2 {
+  color: gold;
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  padding: 20px;
+  border: 1px solid gold;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background: gold;
+  color: black;
+}
+
+.closing {
+  font-style: italic;
+  color: #bbb;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s ease;
+}
+
+.delay {
+  transition-delay: 0.5s;
+}
