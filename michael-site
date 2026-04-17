@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Michael</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<mobody>
+
+  <div class="overlay"></div>
+
+  <section class="hero">
+    <h1 class="fade-in">Michael</h1>
+    <p class="fade-in delay">Lawyer • Strategist • Powerhouse</p>
+  </section>
+
+  <section class="about fade-in">
+    <h2>Who He Is</h2>
+    <p>
+      Precision. Intelligence. Presence.  
+      Michael is not just a lawyer—he is a force in motion. Known for his sharp mind,
+      disciplined focus, and undeniable charisma, he approaches every challenge with clarity and intent.
+    </p>
+  </section>
+
+  <section class="highlight fade-in">
+    <h2>Signature Traits</h2>
+    <div class="cards">
+      <div class="card">Brilliant</div>
+      <div class="card">Driven</div>
+      <div class="card">Strategic</div>
+      <div class="card">Unstoppable</div>
+    </div>
+  </section>
+
+  <section class="closing fade-in">
+    <p>
+      Some men talk about excellence.  
+      Others embody it.  
+      Michael does both.
+    </p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0a0a0a;
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, transparent, black 80%);
+  z-index: -1;
+}
+
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: black;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 4em;
+  letter-spacing: 2px;
+}
+
+.hero p {
+  color: gold;
+  margin-top: 10px;
+}
+
+.about, .highlight, .closing {
+  padding: 80px 20px;
+  text-align: center;
+  max-width: 800px;
+  margin: auto;
+}
+
+h2 {
+  color: gold;
+  margin-bottom: 20px;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 15px;
+}
+
+.card {
+  padding: 20px;
+  border: 1px solid gold;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  background: gold;
+  color: black;
+}
+
+.closing {
+  font-style: italic;
+  color: #bbb;
+}
+
+/* Animations */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s ease;
+}
+
+.delay {
+  transition-delay: 0.5s;
+}
+const elements = document.querySelectorAll('.fade-in');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+});
+
+elements.forEach(el => observer.observe(el));
